@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Conditional Logic Exercise</title>
+  <title>Exercise: Conditional Logic</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    #result { margin-top: 15px; color: green; font-weight: bold; }
+    #hint { display: none; margin-top: 10px; color: blue; }
+    button { margin-right: 10px; }
+    input { margin-right: 5px; }
+  </style>
 </head>
 <body>
-  <h1>Open your browser's console to see the result</h1>
+  <h1>Exercise: Conditional Logic</h1>
+  <p>Enter a number and see if it is positive, negative, or zero.</p>
+  <input type="number" id="userNumber" placeholder="Enter a number">
+  <button onclick="checkNumber()">Check</button>
+  <button onclick="showHint()">Show Hint</button>
+  <div id="result"></div>
+  <div id="hint"></div>
 
-  <script src="conditional-logic.js"></script>
+  <script>
+    function checkNumber() {
+      const numInput = document.getElementById('userNumber').value;
+      const resultDiv = document.getElementById('result');
+      if (numInput === "") {
+        resultDiv.textContent = "Please enter a number.";
+        resultDiv.style.color = "red";
+        return;
+      }
+      const num = Number(numInput);
+      if (isNaN(num)) {
+        resultDiv.textContent = "Invalid input. Please enter a valid number.";
+        resultDiv.style.color = "red";
+      } else if (num > 0) {
+        resultDiv.textContent = "The number is positive.";
+        resultDiv.style.color = "green";
+      } else if (num < 0) {
+        resultDiv.textContent = "The number is negative.";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = "The number is zero.";
+        resultDiv.style.color = "green";
+      }
+    }
+
+    function showHint() {
+      const hintDiv = document.getElementById('hint');
+      hintDiv.style.display = 'block';
+      hintDiv.textContent = "Tip: Use if, else if, and else statements to determine the number's sign.";
+    }
+  </script>
 </body>
 </html>
