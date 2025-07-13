@@ -1,9 +1,9 @@
 // Declare and initialize variables of different data types
-const name = "Knoph Oluoch Ayieko";
-const age = 24;
+const name = "Knoph Ayieko";
+const age = 26;
 const isStudent = true;
 const address = {
-  city: "Eldoret",
+  city: "Nairobi",
   country: "Kenya"
 };
 const hobbies = ["coding", "reading", "traveling", "designing"];
