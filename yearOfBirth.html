@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Year of Birth Calculator</title>
+</head>
+<body>
+  <h1>JavaScript Year of Birth Calculator</h1>
+
+  <script>
+    // Prompt for Name and Age with validation
+    let userName = "";
+    let userAge = "";
+    while (!userName) {
+      userName = prompt("What is your name?");
+      if (userName === null) {
+        alert("Name input cancelled. Goodbye!");
+        throw new Error("Input cancelled");
+      }
+      userName = userName.trim();
+    }
+    while (true) {
+      userAge = prompt("How old are you?");
+      if (userAge === null) {
+        alert("Age input cancelled. Goodbye!");
+        throw new Error("Input cancelled");
+      }
+      userAge = userAge.trim();
+      if (/^\d+$/.test(userAge) && parseInt(userAge) > 0 && parseInt(userAge) < 130) {
+        break;
+      } else {
+        alert("Please enter a valid age (number between 1 and 129).");
+      }
+    }
+
+    // Calculate Year of Birth
+    const currentYear = new Date().getFullYear();
+    const yearOfBirth = currentYear - parseInt(userAge);
+
+    // Display the Result
+    alert(`Hello, ${userName}! You were probably born in ${yearOfBirth}.`);
+  </script>
+</body>
+
+</html>
